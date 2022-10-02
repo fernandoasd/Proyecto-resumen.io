@@ -21,23 +21,31 @@
           <div class="card">
             <div class="card-header">
               <a class="btn" data-bs-toggle="collapse" href="#collapseOne">
-                Javascript
+               <h2>JavaScript.</h2>
               </a>
             </div>
             <div id="collapseOne" class="collapse show" data-bs-parent="#accordion">
               <div class="card-body">
-                <h4><strong>Consola</strong> </h4>
-                <p>En Google Chrome la consola se abre con <kbd>Ctrl + Mayus + I</kbd>.  </p>
-                <p>Usar <kbd>console.clear()</kbd> para limpiar ventana de consola.</p>
-                <p>Usar <kbd>console.log("Texto en consola")</kbd>  para mostrar mensaje en consola</p>
-                <p>Usar <kbd>console.error("Error")</kbd> para mostrar mensaje rojo de error en consola.</p>
-                <p>Usar <kbd>console.warn("Advertencia")</kbd> para mostrar mensaje amarilo de advertencia en consola.</p>
-                <p>Usar <kbd>console.log("%cMensaje de color verde y grande", "color:yellow; fontsize: xlarge")</kbd> para mostrar mensaje amarillo tamaño grande? (no funciona el)</p>
+                <h4><strong>Consola</strong></h4>
+                <p>En Google Chrome la consola se abre con <kbd>Ctrl + Mayus + I</kbd>.</p>
+                <p>Usar <code>console.clear()</code> para limpiar ventana de consola.</p>
+                <p>Usar <code>console.log("Texto en consola")</code>  para mostrar mensaje en consola</p>
+                <p>Usar <code>console.error("Error")</code> para mostrar mensaje rojo de error en consola.</p>
+                <p>Usar <code>console.warn("Advertencia")</code> para mostrar mensaje amarilo de advertencia en consola.</p>
+                <p>Usar <code>console.log("%cMensaje de color verde y grande", "color:yellow; fontsize: xlarge")</code> para mostrar mensaje amarillo tamaño grande? (no funciona el)</p>
+                <br>
+                <h4><strong>Declaración de variables y operaciones:</strong></h4>
+                <p>Usar <code>var nombre_variable</code> para declarar variable (no puede empezar con número y solo ciontener los carácteres _ y $).</p>
+                <p>Usar <code>let nombre_variable</code> la variable solo afecta a su ámbito, ya que son locales al bloque donde se están declarando.</p>
+                <p>Usar <code>const nombre_variable</code> "const" no declara una variable sino una constante, que no puede variar su valor a lo largo de la ejecución de un programa.</p>
+                <p><br>Ejemplo: <code>var variable1=23, variable2=33</code> para declarar variables, <code>var sumatotal= sumando1 + sumando2</code> para declarar la variable de la suma</p>
+                <p>Impresión del resultado en consola (en color verde): <code>console.log("%cEl resultado de la suma de es " + sumatotal + ".", "color:#0f0")</code></p>
+                <p>Lo que se ve en consola (presionar f12): <h5 class="text-success">El resultado de la suma de es 35.</h5></p>
                 <script>
                   //Este s un comantario de una sola líena: Inicio de script
                     console.log("Texto en consola")
                     console.info("Hola")
-                    console.error("Error")
+                    console.error("Mensaje de Error")
                     console.warn("Advertencia amarilla")
                     console.log("%cMensaje de color verde y grande", "color:yellow; fontsize: xlarge");
                     //ejemplo de declaracion de variales y suma
@@ -47,7 +55,8 @@
                     //le asigno un nuevo valor a sumando1, pro ejemplo 2
                     sumando1 = 2
                     //vuelvo a hacer la suma
-                    console.log("Ahora sumando1=2 y  sumando2=33, la nueva sumatotal vale= " + sumatotal + ".")
+                    sumatotal= sumando1 + sumando2
+                    console.log("%cEl resultado de la suma de es " + sumatotal + ".", "color:#0f0")
                 </script>
 
               </div>
@@ -56,19 +65,40 @@
           <div class="card">
             <div class="card-header">
               <a class="collapsed btn" data-bs-toggle="collapse" href="#collapseTwo">
-              Git + GitHub
+              <h2> Git + GitHub.</h2>
             </a>
             </div>
             <div id="collapseTwo" class="collapse" data-bs-parent="#accordion">
               <div class="card-body">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                <p>En la carpeta donde se quiere iniciar el repositorio dar doble click a <kbd>Git Bash Here</kbd>.</p>
+                <p>Escribir <code> git version</code> para saber la <strong> versión del Git </strong> instalada.</p>
+                <p>Escribir <code> git init</code> para <strong> iniciar repositorio </strong>local.</p>
+                <p>Escribir <code> git add index.html</code> para agregar archivo al staging area, en este caso "index.html" .</p>
+                <p>Escribir <code> git add .</code> para agregar todos los archivos al staging área.</p>
+                <p>Escribir <code> git comment -m "comentario del commit" </code> para hacer un commit.</p>
+                <p>Escribir <code> git remote add origin https:// ... .git</code> para agregar repositorio locar al repositorio <strong> remoto en HitHub</strong>.</p>
+                <p>Escribir <code> git status -s o git status</code> para ver los archivos modificados despues del ultimo commit.</p>
+                <p>Escribir <code> git log --oneline</code> para ver todos los commits, notar que cada uno tiene un codigo único.</p>
+                <p>Escribir <code> git reset --hard 01cdac6</code> para cargar a un commit anterior, en este caso al 01cdac6.</p>
+                <ul> Escribir <code> git commit -amend</code> para editar <strong> VIM</strong>: modificar comentarios de commits.</p>
+                  <li>Escribir <code>:i </code> para modificar comentario, luego otra vez <code>:i </code> para guardar.</li>
+                  <li> <code>:wq </code> para guadar cambios y salir del VIM.</li>
+                </ul>
+                <p>Escribir <code>git tag v1 -m "comentario del tag: Version 1 del proyecto"</code> paraagregar un tag o version del proyecto.</p>
+                <p>Escribir <code>git push --tags</code> para subir tags a repositorio remoto.</p>
+                <p>Escribir <code>git branch nombre_del_branch</code> para crear una <strong> rama o branch</strong>.</p>
+                <p>Escribir <code>git branch</code> para consultar todos los branch, el principal es el main por defecto.</p>
+                <p>Escribir <code>git checkout nombre_del_brancg</code> para moverse al branch nombre_del_branch.</p>
+                <p>Escribir <code>git merge rama_a_unir</code> para hacer un <strong> merge </strong> con la rama main. Es necesario estar posicionado en el main para hacerlo.</p>
+                <p>Escribir <code>git branch -d nombre_branch</code> para borrar branch.</p>
+                <p>Escribir <code>git </code> para.</p>
               </div>
             </div>
           </div>
           <div class="card">
             <div class="card-header">
               <a class="collapsed btn" data-bs-toggle="collapse" href="#collapseThree">
-                Collapsible Group Item #3
+                <h2>Accordion 3</h2>
               </a>
             </div>
             <div id="collapseThree" class="collapse" data-bs-parent="#accordion">
