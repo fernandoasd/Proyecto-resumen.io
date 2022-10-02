@@ -53,6 +53,11 @@
                   <br> Retorno de carro  <code><strong>\r<strong></strong></code>.
                   <br> Salto de página <code><strong>\f<strong></strong></code>.
                   <br> Retroceder espacio <code><strong>\b<strong></strong></code>.
+                  <br>
+                  <h4><strong><strong>Funciones.</strong></h4>
+                  <code><strong>parseInt()</strong> y <strong>parseFloat()</strong></code> sirve para extrar un numero de un string. También <code><strong>parseInt(String,Radix xx)</strong></code> Si XX= 2-dinario, 8-octal, 10-decimal, 16-hexadecimal. Si se omite el radix por defecto es decimal.
+                  <p>Devuelve la primer cifra, si encuenra un caracter no numérico se ignora el resto de la cadena. Si el primer caracter encontrado no es un número devuelve NaN (not a Number).</p>
+                  <code><strong>Number()</strong> o <strong>+var</strong></code> funciona como un conversor de tipo numérico. A diferencia de parseInt() y parse Float() cuando hay un caracter no numético (aunque sea al final del string) siempre devuelve NaN.
 
                 </p>
                 <br> 
@@ -72,7 +77,34 @@
                     //vuelvo a hacer la suma
                     sumatotal= sumando1 + sumando2
                     console.log("%cEl resultado de la suma de es " + sumatotal + ".", "color:#0f0")
-                    console.print(aaa \\)
+                    
+                    // ejemplo parseInt()
+                    console.log(parseInt(12, "ffff")); //devuelve 12
+                    console.log(parseInt(444.12)); //devuelve 444
+                    console.log(parseInt("35hf")); //devuelve 35
+                    console.log(parseInt("a10")); //devuelve NAN
+
+                    // ejemplo parseInt() tiene en cuenta . decimales, +, - y numero 0-9, notación exponencial, del tipo "314e 2" o "0.0314e+2".
+                    console.log(parseFloat("3.1422")) //devuelve 3.1422
+                    console.log(parseFloat("314E-2")) //devuelve 3.14
+                    console.log(parseFloat("e-4")) //devuelve NAN
+
+                    // ejemplo de Number()
+                    console.log(Number(true)) //devuelve 1
+                    console.log(Number(false)) //devuelve 0
+                    console.log(Number("20 días")) //NaN por contener valor no numérico
+
+                    var myNumberValue = "20" -1;
+                    console.log(myNumberValue); // 19
+                    var myNumberValue = "8" * 5;
+                    console.log(myNumberValue); // 40
+
+                    //otra formade usar Number() es con +
+                    console.log(+"0x10"); // 16 (pasa de hex a decimal)
+                    console.log(+"14.22"); // 14.22
+                    console.log(+""); // devuelve el vacío como 0
+                    
+                    
                 </script>
 
               </div>
