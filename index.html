@@ -16,7 +16,7 @@
     <h1 class="text-center m-3">Resúmenes</h1>
  
     <div class="container mt-3">
-
+<!--Primer acordion-->
         <div id="accordion">
           <div class="card">
             <div class="card-header">
@@ -32,12 +32,22 @@
                 <p>Usar <kbd>console.log("Texto en consola")</kbd>  para mostrar mensaje en consola</p>
                 <p>Usar <kbd>console.error("Error")</kbd> para mostrar mensaje rojo de error en consola.</p>
                 <p>Usar <kbd>console.warn("Advertencia")</kbd> para mostrar mensaje amarilo de advertencia en consola.</p>
-
+                <p>Usar <kbd>console.log("%cMensaje de color verde y grande", "color:yellow; fontsize: xlarge")</kbd> para mostrar mensaje amarillo tamaño grande? (no funciona el)</p>
                 <script>
+                  //Este s un comantario de una sola líena: Inicio de script
                     console.log("Texto en consola")
                     console.info("Hola")
                     console.error("Error")
                     console.warn("Advertencia amarilla")
+                    console.log("%cMensaje de color verde y grande", "color:yellow; fontsize: xlarge");
+                    //ejemplo de declaracion de variales y suma
+                    var sumando1 = 23,sumando2 = 33
+                    var sumatotal= sumando1 + sumando2
+                    console.log("El resultado de la suma de sumatotal= 23 + 33 = " + sumatotal + ".")
+                    //le asigno un nuevo valor a sumando1, pro ejemplo 2
+                    sumando1 = 2
+                    //vuelvo a hacer la suma
+                    console.log("Ahora sumando1=2 y  sumando2=33, la nueva sumatotal vale= " + sumatotal + ".")
                 </script>
 
               </div>
