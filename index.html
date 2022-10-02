@@ -28,19 +28,34 @@
               <div class="card-body">
                 <h4><strong>Consola</strong></h4>
                 <p>En Google Chrome la consola se abre con <kbd>Ctrl + Mayus + I</kbd>.</p>
-                <p>Usar <code>console.clear()</code> para limpiar ventana de consola.</p>
-                <p>Usar <code>console.log("Texto en consola")</code>  para mostrar mensaje en consola</p>
-                <p>Usar <code>console.error("Error")</code> para mostrar mensaje rojo de error en consola.</p>
-                <p>Usar <code>console.warn("Advertencia")</code> para mostrar mensaje amarilo de advertencia en consola.</p>
-                <p>Usar <code>console.log("%cMensaje de color verde y grande", "color:yellow; fontsize: xlarge")</code> para mostrar mensaje amarillo tamaño grande? (no funciona el)</p>
+                <p>Usar <code><strong>console.clear()</strong></code> para limpiar ventana de consola.</p>
+                <p>Usar <code><strong>console.log("Texto en consola")</strong></code>  para mostrar mensaje en consola</p>
+                <p>Usar <code><strong>console.error("Error")</strong></code> para mostrar mensaje rojo de error en consola.</p>
+                <p>Usar <code><strong>console.warn("Advertencia")</strong></code> para mostrar mensaje amarilo de advertencia en consola.</p>
+                <p>Usar <code><strong>console.log("%cMensaje de color verde y grande", "color:yellow; fontsize: x large")</strong></code> para mostrar mensaje amarillo tamaño grande 🤨 (no funciona el x large).</p>
                 <br>
-                <h4><strong>Declaración de variables y operaciones:</strong></h4>
-                <p>Usar <code>var nombre_variable</code> para declarar variable (no puede empezar con número y solo ciontener los carácteres _ y $).</p>
-                <p>Usar <code>let nombre_variable</code> la variable solo afecta a su ámbito, ya que son locales al bloque donde se están declarando.</p>
-                <p>Usar <code>const nombre_variable</code> "const" no declara una variable sino una constante, que no puede variar su valor a lo largo de la ejecución de un programa.</p>
-                <p><br>Ejemplo: <code>var variable1=23, variable2=33</code> para declarar variables, <code>var sumatotal= sumando1 + sumando2</code> para declarar la variable de la suma</p>
+                <h4><strong>Declaración de variables y operaciones.</strong></h4>
+                <p>Usar <code><strong>var nombre_variable</strong></code> para declarar variable (no puede empezar con número y solo ciontener los carácteres _ y $).</p>
+                <p>Usar <code><strong>let nombre_variable</strong></code> la variable solo afecta a su bloque, es una variable local. Por lo que si se declara dentro de la cabecera de un bucle for, esta variable no existe fuera de éste.</p>
+                <p>Usar <code><strong>const nombre_variable</strong></code> "const" no declara una variable sino una constante, que no puede variar su valor a lo largo de la ejecución de un programa.</p>
+                <p><br>Ejemplo: <code><strong>var variable1=23, variable2=33</strong></code> para declarar variables, <code>var sumatotal= sumando1 + sumando2</code> para declarar la variable de la suma</p>
                 <p>Impresión del resultado en consola (en color verde): <code>console.log("%cEl resultado de la suma de es " + sumatotal + ".", "color:#0f0")</code></p>
                 <p>Lo que se ve en consola (presionar f12): <h5 class="text-success">El resultado de la suma de es 35.</h5></p>
+                <br>
+                <h4><strong><strong>Tipos de variables.</strong></h4>
+                <p>Notación en base 8 o sistema octal , se agrega un cero adelante. Por ejemplo <strong>045</strong></p>
+                <p>notación base 16 o sistema hexadecimal. numeros del 0 al 16 y lefras de la A a la F. Se antepone un cero y una equis: <strong>0x3ef</strong></p>
+                <p><strong>Caracteres de escape en cadenas de texto.</strong></p>
+                <p>El comando de Windows para la barra invertida, contrabarra o backslash es <kbd>Alt + 92</kbd>. 
+                  <br> Para escribir comillas en cadena de texto: <code><strong>\" o \'</strong></code> (comillas dobles o simples).
+                  <br> Salto de linea <code><strong>\n <strong></strong></code>.
+                  <br> Tabulador <code><strong>\t<strong></strong></code>.
+                  <br> Retorno de carro  <code><strong>\r<strong></strong></code>.
+                  <br> Salto de página <code><strong>\f<strong></strong></code>.
+                  <br> Retroceder espacio <code><strong>\b<strong></strong></code>.
+
+                </p>
+                <br> 
                 <script>
                   //Este s un comantario de una sola líena: Inicio de script
                     console.log("Texto en consola")
@@ -57,6 +72,7 @@
                     //vuelvo a hacer la suma
                     sumatotal= sumando1 + sumando2
                     console.log("%cEl resultado de la suma de es " + sumatotal + ".", "color:#0f0")
+                    console.print(aaa \\)
                 </script>
 
               </div>
