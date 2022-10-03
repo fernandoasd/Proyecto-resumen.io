@@ -84,7 +84,8 @@
                               <input class="btn btn-primary w-100" type="button"  value="Tomar datos" id="datos1">
                                 <p class="mt-3 text-warning" id="retorno1"></p>
                               <input class="btn btn-danger" type="button" value="Borrar" id="borrar1" style=" display: none;">
-                              <!--Función toma de datos-->
+
+                              <!--Script: Toma de datos-->
                               <script>
                                 //Ejemplo de script toma de Datos: Nombre y apellido
                                   var datos1_js = document.getElementById("datos1");
@@ -132,15 +133,16 @@
                               <input class="border rounded-2 text-center" rows="5" type="text" name="resultado" id="display_resultado" placeholder="Resultado">
                             </div>
                             </div>
-                            <!--Función toma de datos-->
+
+                            <!--Calculadora-->
                             <script>
                               var valor = 0;
-                              var valor1_js = 0;
-                              var valor2_js = 0;
-                              var resultado1_js = 0;
-                              var resultado2_js = 0;
-                              var operacion_js = 0;
-                              var display1_js = document.getElementById("display1");
+                              var valor1_js = 0; //variable auxiliar
+                              var valor2_js = 0;//variable auxiliar
+                              var resultado1_js = 0;//variable auxiliar
+                              var resultado2_js = 0; 
+                              var operacion_js = 0; //Determina el tipo de operación: operacion_js.value= 1 suma , 2 resta, 3 multiplicación, 4 división
+                              var display1_js = document.getElementById("display1"); 
                               var display2_js = document.getElementById("display2");
                               var display3_js = document.getElementById("display3");
                               var resultado_display_js = document.getElementById("display_resultado");
@@ -155,11 +157,11 @@
                               
                               /*Operaciión Suma*/
                               sumar_js.addEventListener("click", function(){ 
-                                valor1_js = display1_js.value;
+                                valor1_js = display1_js.value; 
                                 operacion_js = 1;
                                 display1_js.value = "";
-                                display2_js.value = valor1_js + " + "
-                                console.log("operacion_js.value= " + operacion_js + " Valor= " + valor1_js + " + ")
+                                display2_js.value = valor1_js + " + ";
+                                console.log("operacion_js.value= " + operacion_js + " Valor= " + valor1_js + " + ");
                               })
                               
                                 /*Operaciión Resta*/
@@ -282,9 +284,9 @@
                     console.log(+"14.22"); // 14.22
                     console.log(+""); // devuelve el vacío como 0
                     console.clear()
+                   */
                    
-                   
-                    /* Ejemplo typeof
+                    /*
                     var boleano = true
                     var numerico = 22
                     var numerico_flotante = 13.56
@@ -296,6 +298,7 @@
                     document.write("<br>El tipo de texto es: " + typeof texto) //string
                     document.write("<br>El tipo de fecha es: " + typeof fecha) //object
                     */
+                    
 
 
 
