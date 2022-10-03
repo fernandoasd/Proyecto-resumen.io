@@ -26,8 +26,12 @@
             </div>
             <div id="collapseOne" class="collapse show" data-bs-parent="#accordion">
               <div class="card-body">
+                <h4><strong> Caracteres especiales.</strong></h4>
+                <p> Barra invertida (\) = <kbd>Alt + 92</kbd></p>.
+                <p> Backslash (|) = <kbd>Alt + 124</kbd></p>.
                 <h4><strong>Consola</strong></h4>
                 <p>En Google Chrome la consola se abre con <kbd>Ctrl + Mayus + I</kbd>.</p>
+                <p>Usar <code><strong>document.write("texto en página, no en consola")</strong></code> para limpiar ventana de consola.</p>
                 <p>Usar <code><strong>console.clear()</strong></code> para limpiar ventana de consola.</p>
                 <p>Usar <code><strong>console.log("Texto en consola")</strong></code>  para mostrar mensaje en consola</p>
                 <p>Usar <code><strong>console.error("Error")</strong></code> para mostrar mensaje rojo de error en consola.</p>
@@ -53,13 +57,117 @@
                   <br> Retorno de carro  <code><strong>\r<strong></strong></code>.
                   <br> Salto de página <code><strong>\f<strong></strong></code>.
                   <br> Retroceder espacio <code><strong>\b<strong></strong></code>.
-                  <br>
+                </p>
                   <h4><strong><strong>Funciones.</strong></h4>
                   <code><strong>parseInt()</strong> y <strong>parseFloat()</strong></code> sirve para extrar un numero de un string. También <code><strong>parseInt(String,Radix xx)</strong></code> Si XX= 2-dinario, 8-octal, 10-decimal, 16-hexadecimal. Si se omite el radix por defecto es decimal.
                   <p>Devuelve la primer cifra, si encuenra un caracter no numérico se ignora el resto de la cadena. Si el primer caracter encontrado no es un número devuelve NaN (not a Number).</p>
                   <code><strong>Number()</strong> o <strong>+var</strong></code> funciona como un conversor de tipo numérico. A diferencia de parseInt() y parse Float() cuando hay un caracter no numético (aunque sea al final del string) siempre devuelve NaN.
+                  <h4><strong><strong>Operadores lógicos.</strong></h4>
+                  <p><strong>NOT (!) , AND (&&), OR (||)</strong>. Barra vertical (|): <kbd>Alt + 124</kbd></p>
+                  <p> == Si dos valores son iguales, != Comprueba si dos valores son distintos, >= Mayor igual, <= Menor igual. </p>
+                  <p><strong>Orden de Operadores</strong></p>
+                  <p>1º () [] . Paréntesis, corchetes y el operador punto que sirve para los objetos</p>
+                  <p>2º! - ++ negación, negativo e incrementos</p>
+                  <p>3º * / %  Multiplicación división y módulo</p>
+                  <p>4º + - Suma y resta</p>
 
-                </p>
+                  <h4><strong><strong>alert y prompt</strong></h4>
+                  <p> <code>var nombre = prompt ('Ingrese su nombre');</code></p>
+                  <p><code>var texto = 'Hola mundo JavaScript', alert (texto);</code></p>
+
+                <!--Container de funciones-->
+                <div class="d-flex ">
+                
+                          <!-- Ejemplo de script de toma de datos-->
+                          <div class="container-sm w-25 bg-secondary text-white p-3 m-1 border rounded-2 "> 
+                              <p class=""><strong> Ejemplo de script de toma de datos: </strong></p>
+                              <input class="btn btn-primary" type="button"  value="Tomar datos" id="datos1">
+                                <p class="mt-3 text-warning" id="retorno1"></p>
+                              <input class="btn btn-danger" type="button" value="Borrar" id="borrar1" style=" display: none;">
+                              <!--Función toma de datos-->
+                              <script>
+                                //Ejemplo de script toma de Datos: Nombre y apellido
+                                  var datos1_js = document.getElementById("datos1");
+                                  datos1_js.addEventListener("click",  function(){
+                                      const p =document.getElementById("retorno1")   //crea variablelocal p y le carga que que va a ir en párrafo retoeno1 
+                                      let nombre = prompt ("Ingrese su nombre")     // crea variable local nombre con el valor ingresado del prompt
+                                      let apellido = prompt ("Ingrese su apellido") // crea variable local apellido con el valor ingresado del prompt
+                                      alert ("El nombre ingresado es " + nombre + " " + apellido + ".") //alerta del nombre + apellido
+                                      p.innerText = "El nombre ingresado es: " + nombre + " " + apellido + "."; //agrega el nombre al párrafo retorno1
+                                      document.getElementById("borrar1").style.display = "block"; // muestra boton borrar 
+                                      console.log("Toma de Datos")
+                                  })
+                                  //borrador de datos
+                                  var borrar1_js = document.getElementById("borrar1")
+                                  borrar1_js.addEventListener("click", function(){
+                                      const p =document.getElementById("retorno1")
+                                      p.innerText = ""; //vacía el parrafo
+                                      document.getElementById("borrar1").style.display = "none"; // oculta boton borrar 
+                                      console.log("Borrar datos")
+                                  })
+                              </script>
+
+
+
+                          </div>
+                          <div class="container-sm w-50 bg-secondary text-white p-3 m-1 border rounded-2 "> 
+                            <p class=""><strong> Ejemplo de script calculadora: </strong></p>
+                            <input type="text" name="display"  placeholder="display1" id="display1">
+                            <input type="text" name="display"  placeholder="display2" id="display2"> 
+                            <input type="text" name="display"  placeholder="display3" id="display3">
+                            <input class="btn m-1 btn-primary" type="button"  value="+" id="sumar">
+                            <input class="btn m-1 btn-primary" type="button"  value="-" id="restar">
+                            <input class="btn m-1 btn-primary" type="button"  value="*" id="multiplicar">
+                            <input class="btn m-1 btn-primary" type="button"  value="/" id="dividir">
+                            <input class="btn m-1 btn-primary" type="button"  value="Enter" id="enter">
+                            <input class="btn m-1 btn-primary" type="button"  value="Borrar" id="borrar">
+                            <input type="text" name="resultado" id="display_resultado" placeholder="Resultado">
+                            <!--Función toma de datos-->
+                            <script>
+                              var valor = 0;
+                              var valor1_js = 0;
+                              var valor2_js = 0;
+                              var resultado1_js = 0;
+                              var resultado2_js = 0;
+                              var operación_js = 0;
+                              var display1_js = document.getElementById("display1");
+                              var display2_js = document.getElementById("display2");
+                              var display3_js = document.getElementById("display3");
+                              var resultado_display_js = document.getElementById("display_resultado");
+                              var sumar_js = document.getElementById("sumar");
+                              var restar_js = document.getElementById("restar");
+                              var multiplicar_js = document.getElementById("multiplicar");
+                              var dividir_js = document.getElementById("dividir");
+                              var enter_js = document.getElementById("enter");
+                              var borrar_js = document.getElementById("borrar")
+                              
+                              /*Operaciión Suma*/
+                              sumar_js.addEventListener("click", function(){ 
+                                valor1_js = display1_js.value;
+                                operación_js.value = "+";
+                                display1_js.value = "";
+                                console.log("Sumar" +  " " + valor1_js)
+                              })
+                              
+                              /* ENTER */
+                              enter_js.addEventListener("click", function(){
+                                valor2_js = display1_js.value;
+                                resultado1_js = parseInt(valor1_js)+ parseFloat("operación_js") + parseInt(valor2_js);
+                                resultado_display_js.value = resultado1_js;
+                                display1_js.value = "";
+                                console.log("Sumar" +  " " + valor1_js)
+                              })
+
+                              borrar_js.addEventListener("click", function(){
+                                display1_js.value = "";
+                                resultado_display_js= "";
+                              })
+                            </script>
+                        </div>
+                </div>
+
+
+
                 <br> 
                 <script>
                   //Este s un comantario de una sola líena: Inicio de script
@@ -93,6 +201,7 @@
                     console.log(Number(true)) //devuelve 1
                     console.log(Number(false)) //devuelve 0
                     console.log(Number("20 días")) //NaN por contener valor no numérico
+                    console.log(Number("20.56565")) //20.56565
 
                     var myNumberValue = "20" -1;
                     console.log(myNumberValue); // 19
@@ -103,8 +212,26 @@
                     console.log(+"0x10"); // 16 (pasa de hex a decimal)
                     console.log(+"14.22"); // 14.22
                     console.log(+""); // devuelve el vacío como 0
-                    
-                    
+                    console.clear()
+                   
+                   
+                    /* Ejemplo typeof
+                    var boleano = true
+                    var numerico = 22
+                    var numerico_flotante = 13.56
+                    var texto = "mi texto"
+                    var fecha = new Date()
+                    document.write("<br>El tipo de boleano es: " + typeof boleano) //undefined
+                    document.write("<br>El tipo de numerico es: " + typeof numerico) //boolean
+                    document.write("<br>El tipo de numerico_flotante es: " + typeof numerico) //number
+                    document.write("<br>El tipo de texto es: " + typeof texto) //string
+                    document.write("<br>El tipo de fecha es: " + typeof fecha) //object
+                    */
+
+
+
+
+
                 </script>
 
               </div>
