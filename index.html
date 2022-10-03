@@ -129,7 +129,7 @@
                               var valor2_js = 0;
                               var resultado1_js = 0;
                               var resultado2_js = 0;
-                              var operación_js = 0;
+                              var operacion_js = 0;
                               var display1_js = document.getElementById("display1");
                               var display2_js = document.getElementById("display2");
                               var display3_js = document.getElementById("display3");
@@ -141,27 +141,85 @@
                               var enter_js = document.getElementById("enter");
                               var borrar_js = document.getElementById("borrar")
                               
+                              /* operacion_js.value= 1 suma , 2 resta, 3 multiplicación, 4 división. */
+                              
                               /*Operaciión Suma*/
                               sumar_js.addEventListener("click", function(){ 
                                 valor1_js = display1_js.value;
-                                operación_js.value = "+";
+                                operacion_js = 1;
                                 display1_js.value = "";
-                                console.log("Sumar" +  " " + valor1_js)
+                                display2_js.value = valor1_js + " + "
+                                console.log("operacion_js.value= " + operacion_js + " Valor= " + valor1_js + " + ")
                               })
                               
+                                /*Operaciión Resta*/
+                              restar_js.addEventListener("click", function(){ 
+                                  valor1_js = display1_js.value;
+                                  operacion_js = 2;
+                                  display1_js.value = "";
+                                  display2_js.value = valor1_js + " - "
+                                  console.log("operacion_js.value= " + operacion_js + " Valor= " + valor1_js + " - ")
+                              })
+                              
+                                /*Operaciión Multiplicación*/
+                                multiplicar_js.addEventListener("click", function(){ 
+                                  valor1_js = display1_js.value;
+                                  operacion_js = 3;
+                                  display1_js.value = "";
+                                  display2_js.value = valor1_js + " * "
+                                  console.log("operacion_js.value= " + operacion_js + " Valor= " + valor1_js + " * ")
+                              })
+
+                               /*Operaciión División*/
+                               dividir_js.addEventListener("click", function(){ 
+                                  valor1_js = display1_js.value;
+                                  operacion_js = 4;
+                                  display1_js.value = "";
+                                  display2_js.value = valor1_js + " / "
+                                  console.log("operacion_js.value= " + operacion_js + " Valor= " + valor1_js + " / ")
+                              })
+
+                               /* Borrar */
+                              borrar_js.addEventListener("click", function(){
+                                display1_js.value = "";
+                                display2_js.value = "";
+                                resultado_display_js.value= "";
+                              })
+
                               /* ENTER */
                               enter_js.addEventListener("click", function(){
                                 valor2_js = display1_js.value;
-                                resultado1_js = parseInt(valor1_js)+ parseFloat("operación_js") + parseInt(valor2_js);
-                                resultado_display_js.value = resultado1_js;
-                                display1_js.value = "";
-                                console.log("Sumar" +  " " + valor1_js)
+                                switch (operacion_js){
+                                  case operacion_js.value=1: //caso suma
+                                  resultado_display_js.value = parseInt(valor1_js) + parseInt(valor2_js);
+                                  display1_js.value =  resultado_display_js.value;
+                                  display2_js.value += valor2_js + " = " + resultado_display_js.value
+                                  console.log(valor2_js + " El resultado de la suma es: " + resultado_display_js.value)
+                                  break;
+                                  case operacion_js.value=2: //caso resta
+                                  resultado_display_js.value = parseInt(valor1_js) - parseInt(valor2_js);
+                                  display1_js.value =  resultado_display_js.value;
+                                  display2_js.value += valor2_js + " = " + resultado_display_js.value
+                                  console.log(valor2_js + " El resultado de la resta es: " + resultado_display_js.value)
+                                  break;
+                                  case operacion_js.value=3: //caso multiplicacion
+                                  resultado_display_js.value = parseInt(valor1_js) * parseInt(valor2_js);
+                                  display1_js.value =  resultado_display_js.value;
+                                  display2_js.value += valor2_js + " = " + resultado_display_js.value
+                                  console.log(valor2_js + " El resultado de la multiplicación es: " + resultado_display_js.value)
+                                  break;
+                                  case operacion_js.value=4: //caso división
+                                  resultado_display_js.value = parseInt(valor1_js) / parseInt(valor2_js);
+                                  display1_js.value =  resultado_display_js.value;
+                                  display2_js.value += valor2_js + " = " + resultado_display_js.value
+                                  console.log(valor2_js + " El resultado de la división es: " + resultado_display_js.value)
+                                  break;
+                                  default:
+                                  console.log("Default operacion_js= " + operacion_js)
+                                }
                               })
 
-                              borrar_js.addEventListener("click", function(){
-                                display1_js.value = "";
-                                resultado_display_js= "";
-                              })
+
                             </script>
                         </div>
                 </div>
@@ -170,6 +228,7 @@
 
                 <br> 
                 <script>
+                  /*
                   //Este s un comantario de una sola líena: Inicio de script
                     console.log("Texto en consola")
                     console.info("Hola")
