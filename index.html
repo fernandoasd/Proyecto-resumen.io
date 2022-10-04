@@ -26,6 +26,221 @@
             </div>
             <div id="collapseOne" class="collapse show" data-bs-parent="#accordion">
               <div class="card-body">
+ 
+ <!--script devuelve valor unicode-->
+ <input type="text" size="40" onkeypress="myFunction(event)">
+ <p>"The Unicode value is:"</p>
+ <p id="demo"></p>
+ 
+ <script>
+ function myFunction(event) {
+   let unicode= event.which;
+   document.getElementById("demo").innerHTML = unicode;
+ }
+ </script>
+
+<!--Container de funciones-->
+ 
+   
+ <div class="d-flex ">
+                
+  <!-- Ejemplo de script de toma de datos-->
+  <div class="container-sm w-25 bg-secondary text-white p-3 m-1 border rounded-2 "> 
+      <p class=""><strong> Ejemplo de script de toma de datos: </strong></p>
+      <input class="btn btn-primary w-100" type="button"  value="Tomar datos" id="datos1">
+        <p class="mt-3 text-warning" id="retorno1"></p>
+      <input class="btn btn-danger" type="button" value="Borrar" id="borrar1" style=" display: none;">
+
+      <!--Script: Toma de datos-->
+      <script>
+        //Ejemplo de script toma de Datos: Nombre y apellido
+          var datos1_js = document.getElementById("datos1");
+          datos1_js.addEventListener("click",  function(){
+              const p =document.getElementById("retorno1")   //crea variablelocal p y le carga que que va a ir en párrafo retoeno1 
+              let nombre = prompt ("Ingrese su nombre")     // crea variable local nombre con el valor ingresado del prompt
+              let apellido = prompt ("Ingrese su apellido") // crea variable local apellido con el valor ingresado del prompt
+              alert ("El nombre ingresado es " + nombre + " " + apellido + ".") //alerta del nombre + apellido
+              p.innerText = "El nombre ingresado es: " + nombre + " " + apellido + "."; //agrega el nombre al párrafo retorno1
+              document.getElementById("borrar1").style.display = "block"; // muestra boton borrar 
+              console.log("Toma de Datos")
+          })
+          //borrador de datos
+          var borrar1_js = document.getElementById("borrar1")
+          borrar1_js.addEventListener("click", function(){
+              const p =document.getElementById("retorno1")
+              p.innerText = ""; //vacía el parrafo
+              document.getElementById("borrar1").style.display = "none"; // oculta boton borrar 
+              console.log("Borrar datos")
+          })
+      </script>
+
+
+  <!-- HTML Calculadora-->
+  </div>
+      <div class="container-sm w-50 bg-secondary text-white p-3 m-1 border rounded-2 "> 
+        <p class="text-center"><strong> Ejemplo de script calculadora (Branch: calculadora_v2_input v 2.0.0): </strong></p>
+      <div class="row p-1 d-flex justify-content-center">
+          <input class="m-1 border rounded-2 text-center" type="text" name="display"  placeholder="Ingrese némero" id="display1">
+          <input class="m-1 border rounded-2 text-center" type="text" name="display"  placeholder="Cuentas" id="display2"> 
+          <input class="m-1 border rounded-2 text-center" type="text" name="display"  placeholder="Notas" id="display3">
+        <div class="col-6">
+        <input class="btn w-100 m-1 btn-primary" type="button"  value="+" id="sumar">
+        <input class="btn w-100 m-1 btn-primary" type="button"  value="-" id="restar">
+        <input class="btn w-100 m-1 btn-primary" type="button"  value="1" id="tecla_uno">
+      </div>
+      <div class="col-6">
+        <input class="btn w-100 m-1 btn-primary" type="button"  value="*" id="multiplicar">
+        <input class="btn w-100 m-1 btn-primary" type="button"  value="/" id="dividir">
+      </div>
+      <div class="col-12 d-flex justify-content-start"></div>
+          <input class="btn w-50 m-1 btn-warning" type="button"  value="=" id="enter">
+          <input class="btn w-25 justify-content-end m-1 btn-danger" type="button"  value="Borrar" id="borrar">
+      </div>
+      <div class="row p-1">
+          <input class="border rounded-2 text-center" rows="5" type="text" name="resultado" id="display_resultado" placeholder="Resultado">
+        </div>
+  </div>
+
+
+
+
+    <!-- JS Calculadora-->
+    <script>
+      var valor = 0;
+     
+      
+      var resultado1_js = 0;//variable auxiliar
+      var resultado2_js = 0; 
+      var operacion_js = 0; //Determina el tipo de operación: operacion_js.value= 1 suma , 2 resta, 3 multiplicación, 4 división
+      var display1_js = document.getElementById("display1"); 
+      var display2_js = document.getElementById("display2");
+      var display3_js = document.getElementById("display3");
+      var resultado_display_js = document.getElementById("display_resultado");
+      var sumar_js = document.getElementById("sumar");
+      var restar_js = document.getElementById("restar");
+      var multiplicar_js = document.getElementById("multiplicar");
+      var dividir_js = document.getElementById("dividir");
+      var enter_js = document.getElementById("enter");
+      var borrar_js = document.getElementById("borrar")
+      
+      //Input de teclado
+      
+    
+/* function teclado_calculadora() {
+tecla_esc1 = event.keyCode;
+  console.log("Unicode: " + tecla_js)
+
+ if (tecla_esc1 == 17) {
+console.log("IF : tecla CTRL !")
+}
+}
+
+
+      window.onkeydown = teclado_calculadora();
+      //Ejecución de codigo al presionar un tecla
+*/
+
+function teclado_calculadora() {
+
+tecla_calculadora = event.key;
+if (tecla_calculadora == 1) {
+
+  console.log("IF : tecla 1 !");
+}   
+
+if (tecla_calculadora == 2) {
+console.log("IF : tecla 2 !");
+}
+}
+
+window.onkeydown = teclado_calculadora;
+
+      // capturador de teclado
+      
+
+
+      /* operacion_js.value= 1 suma , 2 resta, 3 multiplicación, 4 división. */
+      
+      /*Operaciión Suma*/
+      sumar_js.addEventListener("click", function(){ 
+        valor1_js = display1_js.value; 
+        operacion_js = 1;
+        display1_js.value = "";
+        display2_js.value = valor1_js + " + ";
+        console.log("operacion_js.value= " + operacion_js + " Valor= " + valor1_js + " + ");
+      })
+      
+        /*Operaciión Resta*/
+      restar_js.addEventListener("click", function(){ 
+          valor1_js = display1_js.value;
+          operacion_js = 2;
+          display1_js.value = "";
+          display2_js.value = valor1_js + " - "
+          console.log("operacion_js.value= " + operacion_js + " Valor= " + valor1_js + " - ")
+      })
+      
+        /*Operaciión Multiplicación*/
+        multiplicar_js.addEventListener("click", function(){ 
+          valor1_js = display1_js.value;
+          operacion_js = 3;
+          display1_js.value = "";
+          display2_js.value = valor1_js + " * "
+          console.log("operacion_js.value= " + operacion_js + " Valor= " + valor1_js + " * ")
+      })
+
+       /*Operaciión División*/
+       dividir_js.addEventListener("click", function(){ 
+          valor1_js = display1_js.value;
+          operacion_js = 4;
+          display1_js.value = "";
+          display2_js.value = valor1_js + " / "
+          console.log("operacion_js.value= " + operacion_js + " Valor= " + valor1_js + " / ")
+      })
+
+       /* Borrar */
+      borrar_js.addEventListener("click", function(){
+        display1_js.value = "";
+        display2_js.value = "";
+        resultado_display_js.value= "";
+      })
+
+      /* ENTER */
+      enter_js.addEventListener("click", function(){
+        valor2_js = display1_js.value;
+        switch (operacion_js){
+          case operacion_js.value=1: //caso suma
+          resultado_display_js.value = parseInt(valor1_js) + parseInt(valor2_js);
+          display1_js.value =  resultado_display_js.value;
+          display2_js.value += valor2_js + " = " + resultado_display_js.value
+          console.log(valor2_js + " El resultado de la suma es: " + resultado_display_js.value)
+          break;
+          case operacion_js.value=2: //caso resta
+          resultado_display_js.value = parseInt(valor1_js) - parseInt(valor2_js);
+          display1_js.value =  resultado_display_js.value;
+          display2_js.value += valor2_js + " = " + resultado_display_js.value
+          console.log(valor2_js + " El resultado de la resta es: " + resultado_display_js.value)
+          break;
+          case operacion_js.value=3: //caso multiplicacion
+          resultado_display_js.value = parseInt(valor1_js) * parseInt(valor2_js);
+          display1_js.value =  resultado_display_js.value;
+          display2_js.value += valor2_js + " = " + resultado_display_js.value
+          console.log(valor2_js + " El resultado de la multiplicación es: " + resultado_display_js.value)
+          break;
+          case operacion_js.value=4: //caso división
+          resultado_display_js.value = parseInt(valor1_js) / parseInt(valor2_js);
+          display1_js.value =  resultado_display_js.value;
+          display2_js.value += valor2_js + " = " + resultado_display_js.value
+          console.log(valor2_js + " El resultado de la división es: " + resultado_display_js.value)
+          break;
+          default:
+          console.log("Default operacion_js= " + operacion_js)
+        }
+      })
+
+
+    </script>
+</div>
+                
                 <h4><strong> Caracteres especiales.</strong></h4>
                 <p> Barra invertida (\) = <kbd>Alt + 92</kbd></p>.
                 <p> Backslash (|) = <kbd>Alt + 124</kbd></p>.
@@ -110,32 +325,32 @@
                               </script>
 
 
+                          <!-- HTML Calculadora-->
+                          </div>
+                              <div class="container-sm w-50 bg-secondary text-white p-3 m-1 border rounded-2 "> 
+                                <p class="text-center"><strong> Ejemplo de script calculadora (Branch: calculadora_v2_input v 2.0.0): </strong></p>
+                              <div class="row p-1 d-flex justify-content-center">
+                                  <input class="m-1 border rounded-2 text-center" type="text" name="display"  placeholder="Ingrese némero" id="display1">
+                                  <input class="m-1 border rounded-2 text-center" type="text" name="display"  placeholder="Cuentas" id="display2"> 
+                                  <input class="m-1 border rounded-2 text-center" type="text" name="display"  placeholder="Notas" id="display3">
+                                <div class="col-6">
+                                <input class="btn w-100 m-1 btn-primary" type="button"  value="+" id="sumar">
+                                <input class="btn w-100 m-1 btn-primary" type="button"  value="-" id="restar">
+                              </div>
+                              <div class="col-6">
+                                <input class="btn w-100 m-1 btn-primary" type="button"  value="*" id="multiplicar">
+                                <input class="btn w-100 m-1 btn-primary" type="button"  value="/" id="dividir">
+                              </div>
+                              <div class="col-12 d-flex justify-content-start"></div>
+                                  <input class="btn w-50 m-1 btn-warning" type="button"  value="=" id="enter">
+                                  <input class="btn w-25 justify-content-end m-1 btn-danger" type="button"  value="Borrar" id="borrar">
+                              </div>
+                              <div class="row p-1">
+                                  <input class="border rounded-2 text-center" rows="5" type="text" name="resultado" id="display_resultado" placeholder="Resultado">
+                                </div>
+                          </div>
 
-                          </div>
-                          <div class="container-sm w-50 bg-secondary text-white p-3 m-1 border rounded-2 "> 
-                            <p class="text-center"><strong> Ejemplo de script calculadora (Branch: calculadora_v2_input v 2.0.0): </strong></p>
-                          <div class="row p-1 d-flex justify-content-center">
-                              <input class="m-1 border rounded-2 text-center" type="text" name="display"  placeholder="Ingrese némero" id="display1">
-                              <input class="m-1 border rounded-2 text-center" type="text" name="display"  placeholder="Cuentas" id="display2"> 
-                              <input class="m-1 border rounded-2 text-center" type="text" name="display"  placeholder="Notas" id="display3">
-                            <div class="col-6">
-                            <input class="btn w-100 m-1 btn-primary" type="button"  value="+" id="sumar">
-                            <input class="btn w-100 m-1 btn-primary" type="button"  value="-" id="restar">
-                          </div>
-                          <div class="col-6">
-                            <input class="btn w-100 m-1 btn-primary" type="button"  value="*" id="multiplicar">
-                            <input class="btn w-100 m-1 btn-primary" type="button"  value="/" id="dividir">
-                          </div>
-                           <div class="col-12 d-flex justify-content-start"></div>
-                              <input class="btn w-50 m-1 btn-warning" type="button"  value="=" id="enter">
-                              <input class="btn w-25 justify-content-end m-1 btn-danger" type="button"  value="Borrar" id="borrar">
-                           </div>
-                           <div class="row p-1">
-                              <input class="border rounded-2 text-center" rows="5" type="text" name="resultado" id="display_resultado" placeholder="Resultado">
-                            </div>
-                            </div>
-
-                            <!--Calculadora-->
+                            <!-- JS Calculadora-->
                             <script>
                               var valor = 0;
                               var valor1_js = 0; //variable auxiliar
